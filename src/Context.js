@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import Image from "./utils/images.json"
+
 
 const Context = React.createContext()
 
@@ -17,7 +17,7 @@ function ContextProvider({children}) {
       
           })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => setAllPhotos(data))
         
   },[])
     
