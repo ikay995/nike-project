@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/nike-project/static/css/main.b51acc52.css",
-    "main.js": "/nike-project/static/js/main.61df4c3f.js",
+    "main.js": "/nike-project/static/js/main.8c8f0d59.js",
     "index.html": "/nike-project/index.html",
     "main.b51acc52.css.map": "/nike-project/static/css/main.b51acc52.css.map",
-    "main.61df4c3f.js.map": "/nike-project/static/js/main.61df4c3f.js.map"
+    "main.8c8f0d59.js.map": "/nike-project/static/js/main.8c8f0d59.js.map"
   },
   "entrypoints": [
     "static/css/main.b51acc52.css",
-    "static/js/main.61df4c3f.js"
+    "static/js/main.8c8f0d59.js"
   ]
 }
