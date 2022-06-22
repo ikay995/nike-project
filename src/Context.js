@@ -9,7 +9,7 @@ function ContextProvider({children}) {
     
     
     useEffect(()=> {
-        fetch('http://ikay995.github.io/nike-project/images.json', {
+        fetch('https://ikay995.github.io/nike-project/images.json', {
             headers : { 
               'Content-Type': 'application/json',
               'Accept': 'application/json'
