@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import Images from "./utils/images.json"
+import Image from "./utils/images.json"
 
 const Context = React.createContext()
 
@@ -9,8 +9,7 @@ function ContextProvider({children}) {
     
     
     useEffect(()=> {
-        console.log(Images)
-        fetch('nike-project/images.json', {
+        fetch('http://ikay995.github.io/nike-project/images.json', {
             headers : { 
               'Content-Type': 'application/json',
               'Accept': 'application/json'
@@ -18,7 +17,8 @@ function ContextProvider({children}) {
       
           })
         .then(res => res.json())
-        .then(data => setAllPhotos(data))
+        .then(data => console.log(data))
+        
   },[])
     
     function toggleFavorite(id) {
