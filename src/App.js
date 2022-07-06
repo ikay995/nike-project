@@ -25,10 +25,11 @@ function App() {
  
     return (
         <div>
+            <Header value={sendValue} onLogOut={handleLogOut}/>
             <Switch>
                 <Route exact path="/">
                   <Header value={sendValue} onLogOut={handleLogOut}/>
-                </Route>
+                </Route>\
                 <Route path="/photo">
                     <Photos />
                 </Route>
