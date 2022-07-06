@@ -16,7 +16,7 @@ function App() {
  
     return (
         <div>
-            {showNav && <Header onLogOut={handleLogOut} />}
+            {showNav && <Header />}
             <Switch>
                 <Route exact path="/">
                     <Header />
