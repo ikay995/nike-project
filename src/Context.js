@@ -103,7 +103,8 @@ function ContextProvider({children}) {
             submitFormHandler,
             displayNav,
             loggedOut,
-            showNav
+            showNav,
+            handleClick
         }}>
             {children}
         </Context.Provider>
