@@ -10,25 +10,12 @@ import Photos from "./pages/Photos"
 function App() {  
     const {showNav} = useContext(Context)
 
-    const [sendValue, setSendValue] = useState(false)  
-    const [display, setDisplay] = useState(false)
-
- const handleChange = (value) => {
-    setSendValue(value)
-    setDisplay(true)
-    console.log(sendValue)
- }
-
- const handleLogOut = () => {
-   setDisplay(false)
-   setSendValue(null)
- }
+    
 
  
  
     return (
         <div>
-            {showNav && <Header onLogOut={handleLogOut} />}
             <Switch>
                 <Route path="/">
                     <Header />
