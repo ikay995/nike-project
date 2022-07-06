@@ -30,10 +30,12 @@ function App() {
         <div>
             {showNav && <Header onLogOut={handleLogOut} />}
             <Switch>
+                <Route path="/">
+                    <Header />
+                </Route>
                 <Route path="/photo">
                     <Photos />
                 </Route>
-                
                 <Route path="/cart">
                     <Cart />
                 </Route>
