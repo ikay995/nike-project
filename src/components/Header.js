@@ -8,7 +8,7 @@ import Navbar from "./login/Navbar"
 
 function Header(props) {
 
-    let isValid = props.value
+    
     const {displayNav, cartItems} = useContext(Context)
     const cartClassName = cartItems.length > 0 ? "ri-shopping-cart-fill" : "ri-shopping-cart-line"
 

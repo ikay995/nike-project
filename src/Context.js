@@ -82,6 +82,7 @@ function ContextProvider({children}) {
     const loggedOut=()=>{
         setDisplayNav(false)
         setValidButton(false)
+        setShowNav(false)
     }
     const handleClick=()=>{
        setShowNav(false)
