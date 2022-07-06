@@ -22,7 +22,7 @@ function Navbar(props) {
             <div className={`${displayNav && "nav-right"}`}>
                 {displayNav && <p>Profile</p>}
                <Link to="/cart">
-                   {!showNav && <i className={`${cartClassName} ri-fw ri-2x`}></i>}
+                   {displayNav && <i className={`${cartClassName} ri-fw ri-2x`} onClick={handleClick}></i>}
                </Link>
                <Link to="/">{displayNav && <button id="nav-button" onClick={loggedOut}>Logout</button>}</Link>
             </div>       
