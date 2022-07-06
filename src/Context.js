@@ -24,6 +24,7 @@ function ContextProvider({children}) {
     const [passwordState, dispatchPassword] = useReducer(passwordReducer, {value: "", isValid: null})
     const [validButton, setValidButton] = useState(false)
     const [displayNav, setDisplayNav] = useState(false)
+    const [showNav, setShowNav] = useState(true)
     
     // https://ikay995.github.io/nike-project/images.json
     useEffect(()=> {
@@ -82,6 +83,9 @@ function ContextProvider({children}) {
         setDisplayNav(false)
         setValidButton(false)
     }
+    const handleClick=()=>{
+       setShowNav(false)
+    }
     
     return (
         <Context.Provider value={{
@@ -98,7 +102,8 @@ function ContextProvider({children}) {
             passwordChangeHandler,
             submitFormHandler,
             displayNav,
-            loggedOut
+            loggedOut,
+            showNav
         }}>
             {children}
         </Context.Provider>

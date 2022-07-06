@@ -6,7 +6,7 @@ const Collection = () => {
     return (
         <div className="col-btn">
             <Link to="/photo">
-              <button id="btncol">VIEW NIKE COLLECTIONS</button>
+              <button id="btncol" onClick={handleClick}>VIEW NIKE COLLECTIONS</button>
             </Link>
         </div>
     )
