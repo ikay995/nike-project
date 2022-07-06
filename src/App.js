@@ -27,9 +27,6 @@ function App() {
         <div>
             <Header value={sendValue} onLogOut={handleLogOut}/>
             <Switch>
-                <Route exact path="/">
-                  <Header value={sendValue} onLogOut={handleLogOut}/>
-                </Route>\
                 <Route path="/photo">
                     <Photos />
                 </Route>
