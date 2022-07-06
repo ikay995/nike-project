@@ -1,6 +1,7 @@
 import React, {useContext} from "react"
 
 import Image from "../components/Image"
+import Navbar from "../components/login/Navbar"
 import {Context} from "../Context"
 import {getClass} from "../utils/Index"
 
@@ -12,9 +13,12 @@ function Photos() {
     ))
     
     return (
+       <> 
+        <Navbar />
         <main className="photos">
             {imageElements}
         </main>
+       </> 
     )
 }
 

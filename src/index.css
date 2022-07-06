@@ -35,6 +35,8 @@ main.photos {
 
 main.cart-page {
   padding: 10px;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .cart-page > h1 {
@@ -149,3 +151,27 @@ a {
 a:visited { color: var(--light-blue); }
 a:hover { color: var(--light-blue); }
 a:active { color: var(--light-blue); }
+
+.nav-right {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#nav-button {
+  background:#EA453C;
+  padding: 0.5em 1em;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@media (max-width: 600px) {
+  .nav-right {
+    width: 40%;
+    font-size: 0.8rem;
+  }
+  #nav-button {
+    padding: 0.1em 0.4em;
+    width: 60px;
+  }
+}

@@ -1,15 +1,33 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useReducer} from "react"
 
 
 const Context = React.createContext()
 
+const emailReducer = (state, action) => {
+    if (action.type === "INPUT_TYPE") {
+        return {value: action.val, isValid: action.val.includes("@")}
+    }
+    return {value: "", isValid: null};
+}
+
+const passwordReducer = (state, action) => {
+    if (action.type === "INPUT_TYPE") {
+        return {value: action.val, isValid: action.val.trim().length > 6}
+    }
+    return {value: "", isValid: null};
+}
+
 function ContextProvider({children}) {
     const [allPhotos, setAllPhotos] = useState([])
     const [cartItems, setCartItems] = useState([])
+    const [emailState, dispatchEmail] = useReducer(emailReducer, {value: "", isValid: null})
+    const [passwordState, dispatchPassword] = useReducer(passwordReducer, {value: "", isValid: null})
+    const [validButton, setValidButton] = useState(false)
+    const [displayNav, setDisplayNav] = useState(false)
     
-    
+    // https://ikay995.github.io/nike-project/images.json
     useEffect(()=> {
-        fetch('https://ikay995.github.io/nike-project/images.json', {
+        fetch('./images.json', {
             headers : { 
               'Content-Type': 'application/json',
               'Accept': 'application/json'
@@ -20,6 +38,10 @@ function ContextProvider({children}) {
         .then(data => setAllPhotos(data))
         
   },[])
+
+  useEffect(()=>{
+      setValidButton(emailState.isValid && passwordState.isValid)
+    }, [emailState.isValid, passwordState.isValid])
     
     function toggleFavorite(id) {
         const updatedArr = allPhotos.map(photo => {
@@ -43,6 +65,23 @@ function ContextProvider({children}) {
     function emptyCart() {
         setCartItems([])
     }
+
+    const emailChangeHandler = (x) => {
+        dispatchEmail({type: "INPUT_TYPE", val: x})
+    }
+    const passwordChangeHandler = (x) => {
+        dispatchPassword({type: "INPUT_TYPE", val: x})
+    }
+    const submitFormHandler = (x) => {
+        x.preventDefault()
+        setDisplayNav(true)
+        console.log(displayNav)
+    }
+
+    const loggedOut=()=>{
+        setDisplayNav(false)
+        setValidButton(false)
+    }
     
     return (
         <Context.Provider value={{
@@ -51,7 +90,15 @@ function ContextProvider({children}) {
             cartItems, 
             addToCart, 
             removeFromCart, 
-            emptyCart
+            emptyCart,
+            emailState,
+            passwordState,
+            validButton,
+            emailChangeHandler,
+            passwordChangeHandler,
+            submitFormHandler,
+            displayNav,
+            loggedOut
         }}>
             {children}
         </Context.Provider>

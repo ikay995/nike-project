@@ -2,17 +2,28 @@ import React, {useContext} from "react"
 import {Link} from "react-router-dom"
 
 import {Context} from "../Context"
+import Collection from "./login/Collection"
+import Login from "./login/Login"
+import Navbar from "./login/Navbar"
 
-function Header() {
-    const {cartItems} = useContext(Context)
+function Header(props) {
+
+    let isValid = props.value
+    const {displayNav, cartItems} = useContext(Context)
     const cartClassName = cartItems.length > 0 ? "ri-shopping-cart-fill" : "ri-shopping-cart-line"
+
+    function loggedOut() {
+        props.onLogOut()
+    }
+
+
+
     return (
-        <header>
-            <Link to="/"><h2>I❤️NikeJordans</h2></Link>
-            <Link to="/cart">
-                <i className={`${cartClassName} ri-fw ri-2x`}></i>
-            </Link>
-        </header>
+    <>
+        <Navbar></Navbar>
+        {!displayNav &&<Login />}
+        {displayNav && <Collection />}
+      </>  
     )
 }
 

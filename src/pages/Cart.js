@@ -1,6 +1,7 @@
 import React, {useState, useContext} from "react"
 import {Context} from "../Context"
 import CartItem from "../components/Cartitem"
+import Navbar from "../components/login/Navbar"
 
 function Cart() {
     const [buttonText, setButtonText] = useState("Place Order")
@@ -22,6 +23,8 @@ function Cart() {
     }
     
     return (
+    <>
+        <Navbar />
         <main className="cart-page">
             <h1>Check out</h1>
             {cartItemElements}
@@ -34,6 +37,7 @@ function Cart() {
                 <p>You have no items in your cart.</p>
             }
         </main>
+    </> 
     )
 }
 
